@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  icon: {
+  obrazek: {
     type: String,
     required: true
   },
@@ -17,19 +17,26 @@ defineProps({
     required: true
   }
 })
+
+const getImageUrl = (name) => {
+  // Cesta musí být relativní z tohoto souboru (Massage.vue) do složky assets
+  return new URL(`../assets/${name}.svg`, import.meta.url).href
+}
 </script>
 
 <template>
-  <article class="bg-[#FFF6E5] p-5 sm:p-6 lg:p-8 shadow-[0_20px_30px_rgba(70,44,24,0.24)]">
-    <span class="material-symbols-outlined text-[#6A4B2F]/55 text-2xl sm:text-3xl">
-      {{ icon }}
-    </span>
+  <article class="flex flex-col h-full bg-[#FFF6E5] p-5 sm:p-6 lg:p-8 shadow-[0_20px_30px_rgba(70,44,24,0.85)]">
+    <img 
+      :src="getImageUrl(obrazek)" 
+      :alt="title" 
+      class="w-10 h-10 object-contain mb-4" 
+    />
 
     <h3 class="mt-6 sm:mt-8 font-serif text-[#6A4B2F] text-xl sm:text-2xl leading-tight">
       {{ title }}
     </h3>
 
-    <p class="mt-4 sm:mt-6 text-[#6A4B2F]/85 text-sm sm:text-base leading-relaxed">
+    <p class="grow mt-4 sm:mt-6 text-[#6A4B2F]/85 text-sm sm:text-base leading-relaxed">
       {{ description }}
     </p>
 
@@ -40,7 +47,7 @@ defineProps({
         class="flex items-center justify-between text-[#6A4B2F] text-lg sm:text-xl lg:text-2xl leading-none"
       >
         <span class="text-[#6A4B2F]/85 text-base sm:text-lg lg:text-xl">{{ item.time }}</span>
-        <span class="font-semibold">{{ item.price }}</span>
+        <span class="font-semibold text-xl">{{ item.price }}</span>
       </li>
     </ul>
   </article>

@@ -33,18 +33,21 @@ function langLabel(lng) {
       return lng.toUpperCase()
   }
 }
+
+defineEmits(['scroll-requested']);
+
 </script>
 
 <template>
-  <header class="bg-[#D2BEA3] px-3 sm:px-4 md:px-6 py-3">
-    <nav class="mx-auto max-w-7xl">
+  <header class="bg-[#D2BEA3] px-3 sm:px-4 md:px-6 ">
+    <nav class="max-md:pb-2 ">
       <div class="flex items-center justify-between gap-4">
         <section class="flex items-center gap-3 sm:gap-4">
-          <img src="../assets/logo-tmave.png" alt="Logo" class="h-12 w-auto sm:h-14" />
-          <div class="hidden md:flex items-center gap-4 lg:gap-6 text-sm lg:text-base text-[#6A4B2F]">
-            <a href="#sluzby">{{ navServices }}</a>
-            <a href="#omne">{{ navAbout }}</a>
-            <a href="#kontakt">{{ navContact }}</a>
+          <img src="../assets/logo-tmave.png" alt="Logo-tmavé" class="h-12 w-auto sm:h-20" />
+          <div class="hidden md:flex items-center  gap-4 lg:gap-6 text-sm lg:text-base text-[#6A4B2F]">
+            <a @click="$emit('scroll-requested', 'sluzby')" class="relative cursor-pointer inline-block pb-1 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#6A4B2F] after:transition-all after:duration-300 hover:after:w-full">{{ navServices }}</a>
+            <a @click="$emit('scroll-requested', 'o-mne')" class="relative cursor-pointer inline-block pb-1 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#6A4B2F] after:transition-all after:duration-300 hover:after:w-full">{{ navAbout }}</a>
+            <a @click="$emit('scroll-requested', 'kontakt')" class="relative cursor-pointer inline-block pb-1 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-[#6A4B2F] after:transition-all after:duration-300 hover:after:w-full">{{ navContact }}</a>
           </div>
         </section>
 
@@ -60,7 +63,7 @@ function langLabel(lng) {
           <div class="flex items-center text-sm">
             <button
               type="button"
-              class="px-1 transition-opacity"
+              class="px-1 transition-opacity cursor-pointer"
               :class="currentLanguage === 'cz' ? 'font-semibold underline' : 'opacity-70 hover:opacity-100'"
               @click="changeLanguage('cz')"
             >
@@ -69,7 +72,7 @@ function langLabel(lng) {
             <span class="px-2 text-gray-700">|</span>
             <button
               type="button"
-              class="px-1 transition-opacity"
+              class="px-1 transition-opacity cursor-pointer"
               :class="currentLanguage === 'en' ? 'font-semibold underline' : 'opacity-70 hover:opacity-100'"
               @click="changeLanguage('en')"
             >
@@ -78,7 +81,7 @@ function langLabel(lng) {
             <span class="px-2 text-gray-700">|</span>
             <button
               type="button"
-              class="px-1 transition-opacity"
+              class="px-1 transition-opacity cursor-pointer"
               :class="currentLanguage === 'de' ? 'font-semibold underline' : 'opacity-70 hover:opacity-100'"
               @click="changeLanguage('de')"
             >
@@ -86,7 +89,7 @@ function langLabel(lng) {
             </button>
           </div>
 
-          <button type="button" class="px-4 py-2 rounded bg-[#664B2F] text-white hover:bg-[#5b4228]">
+          <button type="button" class="px-4 py-2 rounded-xl bg-[#664B2F] text-white hover:bg-[#5b4228] cursor-pointer" @click="$emit('scroll-requested', 'formular')">
             {{ ctaBook }}
           </button>
         </section>
@@ -94,9 +97,9 @@ function langLabel(lng) {
 
       <div v-if="isMobileMenuOpen" class="md:hidden mt-3 rounded bg-[#E5D2B8]/70 p-4 space-y-4 text-[#6A4B2F]">
         <div class="flex flex-col gap-2 text-sm">
-          <a href="#sluzby" @click="isMobileMenuOpen = false">{{ navServices }}</a>
-          <a href="#omne" @click="isMobileMenuOpen = false">{{ navAbout }}</a>
-          <a href="#kontakt" @click="isMobileMenuOpen = false">{{ navContact }}</a>
+          <a @click="$emit('scroll-requested', 'sluzby'); isMobileMenuOpen = false">{{ navServices }}</a>
+          <a @click="$emit('scroll-requested', 'o-mne'); isMobileMenuOpen = false">{{ navAbout }}</a>
+          <a @click="$emit('scroll-requested', 'kontakt'); isMobileMenuOpen = false">{{ navContact }}</a>
         </div>
 
         <div class="flex items-center text-sm">
@@ -128,7 +131,7 @@ function langLabel(lng) {
           </button>
         </div>
 
-        <button type="button" class="w-full px-4 py-2 rounded bg-[#664B2F] text-white hover:bg-[#5b4228]">
+        <button type="button" class="w-full px-4 py-2 rounded bg-[#664B2F] text-white hover:bg-[#5b4228]" @click="$emit('scroll-requested', 'formular'); isMobileMenuOpen = false">
           {{ ctaBook }}
         </button>
       </div>
