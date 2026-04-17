@@ -401,7 +401,7 @@ const scrollToCards = () => {
   <div ref="oMneRef" class="max-w-7xl mx-auto px-[6px] sm:px-3 md:px-4 py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center overflow-hidden">
       
     <div 
-      class="relative w-full max-w-[400px] lg:max-w-[500px] mx-auto lg:mx-0 transition-all duration-1200 ease-out"
+      class="relative w-full max-w-[400px] lg:max-w-[500px] mx-auto lg:mx-0 transition-all duration-[1200ms] ease-out"
       :class="isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
     >
       <div class="bg-white p-4 sm:px-8 sm:py-18 rounded-sm shadow-sm">
@@ -517,7 +517,7 @@ const scrollToCards = () => {
         <div class="relative">
           <span
     aria-hidden="true"
-    class="pointer-events-none font-bold select-none absolute -top-8 sm:-top-14 left-0 right-0 mx-auto w-fit lg:mx-0 lg:right-auto lg:-left-10 xl:-left-40 font-serif text-[110px] sm:text-[170px] lg:text-[200px] xl:text-[250px] leading-none text-[#6A4B2F]/10 uppercase transition-transform duration-1500 ease-out"
+    class="pointer-events-none font-bold select-none absolute -top-8 sm:-top-14 left-0 right-0 mx-auto w-fit lg:mx-0 lg:right-auto lg:-left-10 xl:-left-40 font-serif text-[110px] sm:text-[170px] lg:text-[200px] xl:text-[250px] leading-none text-[#6A4B2F]/10 uppercase transition-transform duration-[1500ms] ease-out"
     :class="isContactVisible ? 'translate-x-0' : '-translate-x-[100vw]'"
   >
   {{ tr('contact.watermark') }}
