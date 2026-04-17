@@ -401,7 +401,7 @@ const scrollToCards = () => {
   <div ref="oMneRef" class="max-w-7xl mx-auto px-[6px] sm:px-3 md:px-4 py-12 sm:py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center overflow-hidden">
       
     <div 
-      class="relative w-full max-w-[400px] lg:max-w-[500px] mx-auto lg:mx-0 transition-all duration-[1200ms] ease-out"
+      class="relative w-full max-w-[400px] lg:max-w-[500px] mx-auto lg:mx-0 transition-all duration-1200 ease-out"
       :class="isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
     >
       <div class="bg-white p-4 sm:px-8 sm:py-18 rounded-sm shadow-sm">
@@ -517,7 +517,7 @@ const scrollToCards = () => {
         <div class="relative">
           <span
     aria-hidden="true"
-    class="pointer-events-none font-bold select-none absolute -top-8 sm:-top-14 left-0 right-0 mx-auto w-fit lg:mx-0 lg:right-auto lg:-left-10 xl:-left-40 font-serif text-[110px] sm:text-[170px] lg:text-[200px] xl:text-[250px] leading-none text-[#6A4B2F]/10 uppercase transition-transform duration-[1500ms] ease-out"
+    class="pointer-events-none font-bold select-none absolute -top-8 sm:-top-14 left-0 right-0 mx-auto w-fit lg:mx-0 lg:right-auto lg:-left-10 xl:-left-40 font-serif text-[110px] sm:text-[170px] lg:text-[200px] xl:text-[250px] leading-none text-[#6A4B2F]/10 uppercase transition-transform duration-1500 ease-out"
     :class="isContactVisible ? 'translate-x-0' : '-translate-x-[100vw]'"
   >
   {{ tr('contact.watermark') }}
@@ -553,11 +553,12 @@ const scrollToCards = () => {
   </div>
 </div>
 
-        <form  class="text-[#6A4B2F] mt-16 px-4 sm:px-0">
+  <form action="https://api.web3forms.com/submit" method="POST" class="text-[#6A4B2F] mt-16 px-4 sm:px-0">
+  <input type="hidden" name="access_key" value="dd0bc156-09be-43df-9195-6720561bea5e">
   <div class="space-y-6">
     <div ref="formularRef">
       <label for="name" class="block text-xs sm:text-sm uppercase mb-2">{{ tr('form.name') }}</label>
-      <input id="name" type="text" v-model="formData.name"
+      <input name="Jméno a příjmení" id="name" type="text" v-model="formData.name" required
         @blur="validateName"
         :class="['w-full rounded-md bg-[#FFF6E5] px-4 py-3 outline-none border transition-colors', errors.name ? 'border-red-500' : 'border-[#6A4B2F]/10']" 
       />
@@ -567,7 +568,7 @@ const scrollToCards = () => {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label for="email" class="block text-xs sm:text-sm uppercase mb-2">{{ tr('form.email') }}</label>
-        <input id="email" type="email" v-model="formData.email"
+        <input name="Email" placeholder="example@email.cz" id="email" type="email" v-model="formData.email" required
           @blur="validateEmail"
           :class="['w-full rounded-md bg-[#FFF6E5] px-4 py-3 outline-none border transition-colors', errors.email ? 'border-red-500' : 'border-[#6A4B2F]/10']" 
         />
@@ -575,9 +576,9 @@ const scrollToCards = () => {
       </div>
       <div>
         <label for="phone" class="block text-xs sm:text-sm uppercase mb-2">{{ tr('form.phone') }}</label>
-        <input id="phone" type="tel" v-model="formData.phone"
+        <input name="Telefon" id="phone" type="tel" v-model="formData.phone" required
           @blur="validatePhone"
-          placeholder="+420 123 456 789" 
+          :placeholder="tr('form.phonePlaceholder')" 
           :class="['w-full rounded-md bg-[#FFF6E5] px-4 py-3 outline-none border transition-colors', errors.phone ? 'border-red-500' : 'border-[#6A4B2F]/10']" 
         />
         <span v-if="errors.phone" class="text-red-500 text-xs mt-1 block">{{ tr(errors.phone) }}</span>
@@ -589,6 +590,8 @@ const scrollToCards = () => {
         <label for="datetime" class="block text-xs sm:text-sm uppercase mb-2">{{ tr('form.datetime') }}</label>
         <div ref="calendarWrapperRef" class="relative">
           <input
+            required
+            name="Den a čas"
             id="datetime"
             type="text"
             :value="selectedDateTimeDisplay"
@@ -717,7 +720,7 @@ const scrollToCards = () => {
       <div>
         <label for="service" class="block text-xs sm:text-sm uppercase mb-2">{{ tr('form.service') }}</label>
         <div class="relative w-full">
-        <select id="service" class="w-full rounded-md bg-[#FFF6E5] py-3 pl-4 pr-12 outline-none border border-[#6A4B2F]/10 appearance-none cursor-pointer">
+        <select required name="Typ masáže" id="service" class="w-full rounded-md bg-[#FFF6E5] py-3 pl-4 pr-12 outline-none border border-[#6A4B2F]/10 appearance-none cursor-pointer">
            <option>{{ tr('form.services.sport') }}</option>
            <option>{{ tr('form.services.ayurveda') }}</option>
            <option>{{ tr('form.services.cupping') }}</option>
@@ -734,7 +737,8 @@ const scrollToCards = () => {
 
     <div>
   <label for="message" class="block text-xs sm:text-sm uppercase mb-2">{{ tr('form.message') }}</label>
-  <textarea 
+  <textarea
+    name="Zpráva"
     id="message" 
     rows="4" 
     v-model="formData.message"
@@ -746,13 +750,13 @@ const scrollToCards = () => {
 </div>
 
     <label class="flex items-center justify-center gap-3 text-xs sm:text-sm cursor-pointer">
-      <input type="checkbox" class="h-5 w-5 rounded border-[#6A4B2F]/20 bg-[#FFF6E5] text-[#6A4B2F]" />
+      <input type="checkbox" class="h-5 w-5 rounded border-[#6A4B2F]/20 bg-[#FFF6E5] text-[#6A4B2F]" required />
       {{ tr('form.gdpr') }}
     </label>
 
     <div class="pt-2 text-center">
       <button
-        type="button"
+        type="submit"
         class="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-md bg-[#664B2F] text-[#FFF6E5] text-[10px] sm:text-xs uppercase tracking-widest sm:tracking-[0.12em] hover:bg-[#5b4228] transition-colors cursor-pointer"
       >
       {{ tr('form.submit') }}

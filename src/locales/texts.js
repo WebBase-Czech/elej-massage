@@ -76,7 +76,7 @@ export const resources = {
         title1: "Udělejte si čas jen",
         title2: "na sebe",
         p1: "Dopřejte svému tělu i mysli zasloužený odpočinek. Vyberte si z mojí nabídky služeb a navrhněte termín, který vám vyhovuje nejlépe.",
-        p2: "Tento formulář slouží jako nezávazná poptávka. Po jeho odeslání se vám co nejdříve ozvu, abychom společně termín potvrdili a doladili detaily vaší návštěvy. Těším se na vás."
+        p2: "Tento formulář slouží jako nezávazná poptávka. Po jeho odeslání se Vám co nejdříve ozvu, abychom společně termín potvrdili a doladili detaily vaší návštěvy. Těším se na Vás."
       },
       form: {
         name: "Jméno a příjmení",
@@ -346,7 +346,7 @@ export const resources = {
         name: "Vorname und Nachname",
         email: "E-Mail",
         phone: "Mobilnummer",
-        phonePlaceholder: "+420 123 456 789",
+        phonePlaceholder: "+43 664 1234567",
         datetime: "Bevorzugter Termin und Uhrzeit",
         datetimePlaceholder: "20.03.2026 - 8:22",
         service: "Dienstleistung auswählen",
