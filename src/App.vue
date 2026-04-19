@@ -407,13 +407,13 @@ const scrollToCards = () => {
       <div class="bg-white p-4 sm:px-8 sm:py-18 rounded-sm shadow-sm">
         <img
           src="./assets/majitelka.jpeg"
-          alt="Masérka Elen Jurásková - Masážní salon Hnanice"
+          alt="Masérka Elen Jurášková - Masážní salon Hnanice"
           class="w-full h-auto object-cover"
         />
       </div>
 
       <div class="absolute -bottom-14 md:-bottom-16 left-4 sm:left-6 bg-[#664B2F] text-white px-4 sm:px-10 py-6 sm:py-8">
-        <div class="font-serif text-base sm:text-[30px] leading-tight">Elen Jurásková</div>
+        <div class="font-serif text-base sm:text-[30px] leading-tight">Elen Jurášková</div>
         <div class="text-[16px] opacity-90">{{ tr('owner.role') }}</div>
       </div>
     </div>

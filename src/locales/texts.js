@@ -37,7 +37,7 @@ export const resources = {
         p7: "Každý dotek přizpůsobuji individuálně – s důrazem na poctivost, klid a respekt k vašemu tělu.",
       },
       procedures: {
-        title: "Naše procedury",
+        title: "Moje procedury",
         subtitle: "Kombinace tradičních technik a moderního přístupu k tělu.",
         cards: {
           sport: {

@@ -35,7 +35,10 @@ defineEmits(['scroll-requested']);
               <img src="../assets/telefon.svg" alt="telefon">
               <p>{{ tr('footer.contact.phone') }}</p>
             </div>
-           
+
+            <div class="flex gap-2 justify-center md:justify-start">
+              <p>IČO: 24540200</p>
+            </div>
             
           </div>
         </div>
@@ -53,7 +56,7 @@ defineEmits(['scroll-requested']);
           <div>
             <p class="uppercase tracking-wider text-[#E5D2B8]">{{ tr('footer.info.title') }}</p>
             <ul class="mt-4 space-y-2 text-[#E5D2B8]/90">
-              <li><a href="#" class="hover:text-white transition-colors">{{ tr('footer.info.privacy') }}</a></li>
+              <li><a href="../../public/gdpr.pdf" target="_blank" class="hover:text-white transition-colors">{{ tr('footer.info.privacy') }}</a></li>
             </ul>
           </div>
         </div>
